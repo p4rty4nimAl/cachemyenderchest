@@ -1,0 +1,9 @@
+cache ender chest
+view it anywhere, cant use it obv
+
+keybind to open menu, settings button in corner // i currently have no uses:
+	change keybind here //FAPI handled it: no issues here
+	other stuff // no ideas here, open an issue if you do
+	set when reset cache? (worldload, timer) // i dont see any worthwhile points for this to take effect at, but if you can think of any, open an issue
+detection might have to be based on text at top of chest? // it is, if you have a better approach, open an issue
+which may be manipulated by serverside stuff
