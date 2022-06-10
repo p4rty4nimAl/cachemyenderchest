@@ -5,7 +5,7 @@ import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.inventory.EnderChestInventory;
 import net.minecraft.inventory.SimpleInventory;
-import net.minecraft.text.Text;
+import net.minecraft.text.TranslatableTextContent;
 import org.lwjgl.glfw.GLFW;
 import tk.p4rty.cachemyenderchest.screen.EnderchestViewer;
 import tk.p4rty.cachemyenderchest.screen.EnderchestViewerScreenHandler;
@@ -24,7 +24,7 @@ public class Main implements ClientModInitializer {
                         8080,
                         client.player.getInventory(),
                         ecinv),
-                        client.player.getInventory(), Text.translatable("cmec.title.clientcache", Text.translatable("container.enderchest"))));
+                        client.player.getInventory(), new TranslatableTextContent("cmec.title.clientcache", new TranslatableTextContent("container.enderchest"))));
             }
         });
     }
