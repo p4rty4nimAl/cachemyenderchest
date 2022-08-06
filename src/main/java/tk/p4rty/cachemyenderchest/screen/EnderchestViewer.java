@@ -4,7 +4,9 @@ import net.minecraft.client.gui.screen.ingame.GenericContainerScreen;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.screen.GenericContainerScreenHandler;
 import net.minecraft.text.Text;
+import org.anti_ad.mc.ipn.api.IPNIgnore;
 
+@IPNIgnore
 public class EnderchestViewer extends GenericContainerScreen {
 
     public EnderchestViewer(GenericContainerScreenHandler handler, PlayerInventory pinv, Text title) {
