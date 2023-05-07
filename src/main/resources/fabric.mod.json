@@ -19,7 +19,7 @@
   "environment": "*",
   "entrypoints": {
     "client": [
-      "tk.p4rty.cachemyenderchest.Main"
+      "tk.p4rty.cachemyenderchest.CacheMyEnderchest"
     ]
   },
   "mixins": [

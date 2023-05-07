@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-import tk.p4rty.cachemyenderchest.Main;
+import tk.p4rty.cachemyenderchest.CacheMyEnderchest;
 
 
 @Mixin(PlayerEntity.class)
@@ -23,6 +23,6 @@ public abstract class PlayerEntityMixin extends LivingEntity {
 
     @Inject(method = "getEnderChestInventory", at = @At("HEAD"))
     private void onGetEnderChestInventory(CallbackInfoReturnable<EnderChestInventory> cir) {
-        Main.ecinv = this.enderChestInventory;
+        CacheMyEnderchest.ecinv = this.enderChestInventory;
     }
 }
