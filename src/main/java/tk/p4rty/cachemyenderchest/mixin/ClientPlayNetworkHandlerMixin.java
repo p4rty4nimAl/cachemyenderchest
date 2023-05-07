@@ -7,8 +7,9 @@ import net.minecraft.inventory.EnderChestInventory;
 import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.listener.ClientPlayPacketListener;
-import net.minecraft.network.packet.s2c.play.*;
-import net.minecraft.text.Text;
+import net.minecraft.network.packet.s2c.play.GameJoinS2CPacket;
+import net.minecraft.network.packet.s2c.play.InventoryS2CPacket;
+import net.minecraft.text.TranslatableText;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -24,7 +25,7 @@ public abstract class ClientPlayNetworkHandlerMixin implements ClientPlayPacketL
 
     @Inject(method = "onInventory", at = @At("TAIL"))
     private void onOnInventory(InventoryS2CPacket packet, CallbackInfo ci) {
-        if ((this.client.currentScreen instanceof GenericContainerScreen) && this.client.currentScreen.getTitle().equals(Text.translatable("container.enderchest"))) {
+        if ((this.client.currentScreen instanceof GenericContainerScreen) && this.client.currentScreen.getTitle().equals(new TranslatableText("container.enderchest"))) {
             for (int i = 0; i < packet.getContents().size() - 36; i++) {
                 items[i] = packet.getContents().get(i);
             }
