@@ -15,16 +15,18 @@ import static net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper.regi
 public class Main implements ClientModInitializer {
     public static KeyBinding CMECKeyBinding =  new KeyBinding("cmec.kb.openmenu", GLFW.GLFW_KEY_Y, "cmec.kb.category");
     public static SimpleInventory ecinv = new EnderChestInventory();
+
     @Override
     public void onInitializeClient() {
         registerKeyBinding(CMECKeyBinding);
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             while (CMECKeyBinding.wasPressed()) {
-                client.setScreen(new EnderchestViewer(new EnderchestViewerScreenHandler(
-                        8080,
-                        client.player.getInventory(),
-                        ecinv),
-                        client.player.getInventory(), Text.translatable("cmec.title.clientcache", Text.translatable("container.enderchest"))));
+                if (client.player == null) return;
+                EnderchestViewer screen = new EnderchestViewer(new EnderchestViewerScreenHandler(8080, client.player.getInventory(), ecinv),
+                        client.player.getInventory(), Text.translatable("cmec.title.clientcache", Text.translatable("container.enderchest")));
+
+                client.setScreen(screen);
+                client.player.currentScreenHandler = screen.getScreenHandler();
             }
         });
     }
