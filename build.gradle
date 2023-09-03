@@ -26,7 +26,7 @@ dependencies {
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"
 	mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
-	modCompileOnly("org.anti-ad.mc:inventory-profiles-next:fabric-1.17.1-1.1.0")
+	modCompileOnly("org.anti-ad.mc:inventory-profiles-next:fabric-1.17.1-1.1.0") // yes, its an older version; api is still the same
 
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
